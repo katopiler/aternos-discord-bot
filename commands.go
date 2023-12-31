@@ -16,7 +16,7 @@ const (
 )
 
 var (
-	adminPermissions int64 = discordgo.PermissionManageServer
+	userPermissions int64 = discordgo.PermissionManageServer
 	userPermissions  int64 = discordgo.PermissionUseSlashCommands
 	dmPermission           = false
 )
@@ -42,19 +42,19 @@ var commands = []*discordgo.ApplicationCommand{
 				ChannelTypes: []discordgo.ChannelType{discordgo.ChannelTypeGuildText},
 			},
 		},
-		DefaultMemberPermissions: &adminPermissions,
+		DefaultMemberPermissions: &userPermissions,
 		DMPermission:             &dmPermission,
 	},
 	{
 		Name:                     StartCommand,
 		Description:              "Start the minecraft server",
-		DefaultMemberPermissions: &adminPermissions,
+		DefaultMemberPermissions: &userPermissions,
 		DMPermission:             &dmPermission,
 	},
 	{
 		Name:                     StopCommand,
 		Description:              "Stop the minecraft server",
-		DefaultMemberPermissions: &adminPermissions,
+		DefaultMemberPermissions: &userPermissions,
 		DMPermission:             &dmPermission,
 	},
 	{
@@ -84,7 +84,7 @@ var commands = []*discordgo.ApplicationCommand{
 	{
 		Name:                     HelpCommand,
 		Description:              "Get help",
-		DefaultMemberPermissions: &adminPermissions,
+		DefaultMemberPermissions: &userPermissions,
 		DMPermission:             &dmPermission,
 	},
 }
